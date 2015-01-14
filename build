@@ -1,0 +1,12 @@
+#!/bin/bash -eu
+
+cp Dockerfile.1 Dockerfile
+docker build -t temp .
+docker create --name temp temp
+docker export temp >temp.tar
+docker rm temp
+docker rmi temp
+cp -f Dockerfile.2 Dockerfile
+docker build -t accursoft/micro-jessie .
+rm temp.tar
+rm Dockerfile
