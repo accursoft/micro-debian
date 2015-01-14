@@ -1,5 +1,5 @@
 FROM debian:jessie
 
-RUN echo "Yes, do as I say!" | apt-get purge systemd tzdata
+RUN echo "Yes, do as I say!" | apt-get purge startpar tzdata
 WORKDIR usr/share
 RUN rm -r doc man locale
