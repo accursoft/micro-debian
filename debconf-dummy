@@ -1,0 +1,8 @@
+Section: misc
+Priority: optional
+Standards-Version: 3.9.2
+
+Package: debconf
+Version: 2
+Maintainer: Gideon Sireling <code@accursoft.com>
+Provides: debconf-2.0

@@ -1,5 +1,7 @@
 FROM scratch
 MAINTAINER Gideon Sireling <gideon@accursoft.com>
 
+ENV DEBCONF_USE_CDEBCONF yes
+ENV DEBIAN_FRONTEND noninteractive
 ADD micro-jessie.tar /
 CMD /bin/sh
