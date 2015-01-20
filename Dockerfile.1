@@ -18,6 +18,7 @@ RUN chmod a+x /usr/sbin/dpkg-preconfigure
 RUN mkdir debconf && mv /tmp/confmodule debconf
 # now we can remove perl
 RUN echo "Yes, do as I say!" | apt-get purge perl-base
+COPY perl /usr/bin/
 # bash removed, update passwd
 RUN sed -i 's/bash/sh/g' /etc/passwd
 # clean up
