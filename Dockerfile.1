@@ -16,7 +16,8 @@ RUN echo "Yes, do as I say!" | apt-get purge \
     libsepol1 \
     libustr-1.0-1 \
     inetutils-ping \
-    libsmartcols1
+    libsmartcols1 \
+    insserv
 RUN apt-get update
 RUN apt-get install -y cdebconf
 ENV DEBCONF_USE_CDEBCONF yes
