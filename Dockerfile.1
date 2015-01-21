@@ -23,8 +23,7 @@ RUN echo "Yes, do as I say!" | apt-get purge \
     libprocps3 \
     libcomerr2 \
     libcap2-bin \
-    libudev1 \
-    lsb-base
+    libudev1
 RUN apt-get update
 RUN apt-get install -y --no-install-recommends cdebconf
 ENV DEBCONF_USE_CDEBCONF yes
