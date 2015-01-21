@@ -21,6 +21,8 @@ RUN echo "Yes, do as I say!" | apt-get purge perl-base
 COPY perl /usr/bin/
 # bash removed, update passwd
 RUN sed -i 's/bash/sh/g' /etc/passwd
+# preserve copyright files
+RUN tar -czf copyrights.tar.gz doc/*/copyright
 # clean up
 RUN apt-get clean
 RUN rm -r doc man locale ~/.bashrc /var/cache/debconf/* /var/lib/apt/lists/*  /debconf_2_all.deb
