@@ -14,7 +14,8 @@ RUN echo "Yes, do as I say!" | apt-get purge \
     ncurses-base \
     libmount1 \
     libsepol1 \
-    libustr-1.0-1
+    libustr-1.0-1 \
+    inetutils-ping
 RUN apt-get update
 RUN apt-get install -y cdebconf
 ENV DEBCONF_USE_CDEBCONF yes
