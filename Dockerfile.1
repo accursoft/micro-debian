@@ -1,7 +1,7 @@
 FROM debian:jessie
 
 ENV DEBIAN_FRONTEND noninteractive
-RUN echo "Yes, do as I say!" | apt-get purge startpar tzdata bash
+RUN echo "Yes, do as I say!" | apt-get purge startpar tzdata bash iproute2
 RUN apt-get update
 RUN apt-get install -y cdebconf
 ENV DEBCONF_USE_CDEBCONF yes
