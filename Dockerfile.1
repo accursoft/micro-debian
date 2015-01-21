@@ -1,7 +1,13 @@
 FROM debian:jessie
 
 ENV DEBIAN_FRONTEND noninteractive
-RUN echo "Yes, do as I say!" | apt-get purge startpar tzdata bash iproute2 e2fslibs
+RUN echo "Yes, do as I say!" | apt-get purge \
+    startpar \
+    tzdata \
+    bash \
+    iproute2 \
+    e2fslibs \
+    libgpg-error0
 RUN apt-get update
 RUN apt-get install -y cdebconf
 ENV DEBCONF_USE_CDEBCONF yes
