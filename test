@@ -1,4 +1,5 @@
 #!/bin/sh -eu
 
+docker pull debian:jessie
 ./build
 docker run --rm accursoft/micro-jessie sh -c "apt-get update && apt-get install -y perl-base curl && curl https://google.com >/dev/null"
