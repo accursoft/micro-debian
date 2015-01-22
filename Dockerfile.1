@@ -44,8 +44,8 @@ COPY perl /usr/bin/
 # bash removed, update passwd
 RUN sed -i 's/bash/sh/g' /etc/passwd
 # preserve copyright files
-RUN tar -czf copyrights.tar.gz doc/*/copyright
+RUN tar -czf copyrights.tar.gz common-licenses doc/*/copyright
 RUN sed 's|doc/\*/copyright|copyrights.tar.gz|' /etc/motd
 # clean up
 RUN apt-get clean
-RUN rm -r doc man locale info ~/.bashrc /var/cache/debconf/* /var/lib/apt/lists/*  /debconf_2_all.deb
+RUN rm -r doc man locale info common-licenses ~/.bashrc /var/cache/debconf/* /var/lib/apt/lists/*  /debconf_2_all.deb
