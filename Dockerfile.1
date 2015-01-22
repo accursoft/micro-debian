@@ -48,4 +48,15 @@ RUN tar -czf copyrights.tar.gz common-licenses doc/*/copyright
 RUN sed 's|doc/\*/copyright|copyrights.tar.gz|' /etc/motd
 # clean up
 RUN apt-get clean
-RUN rm -r doc man locale info common-licenses ~/.bashrc /var/cache/debconf/* /var/lib/apt/lists/* /usr/lib/locale/C.UTF-8 /debconf_2_all.deb
+RUN rm -r \
+    doc \
+    man \
+    locale \
+    info \
+    common-licenses \
+    ~/.bashrc \
+    /var/cache/debconf/* \
+    /var/lib/apt/lists/* \
+    /usr/lib/locale/C.UTF-8 \
+    /var/log/* \
+    /debconf_2_all.deb
