@@ -48,4 +48,4 @@ RUN tar -czf copyrights.tar.gz doc/*/copyright
 RUN sed 's|doc/\*/copyright|copyrights.tar.gz|' /etc/motd
 # clean up
 RUN apt-get clean
-RUN rm -r doc man locale ~/.bashrc /var/cache/debconf/* /var/lib/apt/lists/*  /debconf_2_all.deb
+RUN rm -r doc man locale info ~/.bashrc /var/cache/debconf/* /var/lib/apt/lists/*  /debconf_2_all.deb
