@@ -1,6 +1,5 @@
 #!/bin/bash -eu
 
-equivs-build debconf-dummy
 cp Dockerfile.1 Dockerfile
 docker build -t micro-jessie .
 docker create --name micro-jessie micro-jessie
@@ -8,5 +7,5 @@ docker export micro-jessie >micro-jessie.tar
 docker rm micro-jessie
 docker rmi micro-jessie
 cp -f Dockerfile.2 Dockerfile
-docker build -t accursoft/micro-jessie .
-rm micro-jessie.tar Dockerfile debconf_2_all.deb
+docker build -t accursoft/micro-jessie:perl .
+rm micro-jessie.tar Dockerfile

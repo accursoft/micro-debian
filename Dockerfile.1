@@ -24,30 +24,14 @@ RUN echo "Yes, do as I say!" | apt-get purge \
     libcomerr2 \
     libcap2-bin \
     libudev1
-RUN apt-get update
-RUN apt-get install -y --no-install-recommends cdebconf
-ENV DEBCONF_USE_CDEBCONF yes
-# dummy package so we can remove perl/debconf without breaking dependencies
-COPY debconf_2_all.deb /
-# we need to keep confmodule
-WORKDIR /usr/share
-RUN cp debconf/confmodule /tmp
-# install dummy package, removes real debconf
-RUN dpkg -i /debconf_2_all.deb
-# redirect debconf scripts to cdebconf
-RUN echo "exec /usr/lib/cdebconf/dpkg-preconfigure $0 \"$@"\" >/usr/sbin/dpkg-preconfigure
-RUN chmod a+x /usr/sbin/dpkg-preconfigure
-RUN mkdir debconf && mv /tmp/confmodule debconf
-# now we can remove perl
-RUN echo "Yes, do as I say!" | apt-get purge perl-base
-COPY perl /usr/bin/
 # bash removed, update passwd
 RUN sed -i 's/bash/sh/g' /etc/passwd
+
+WORKDIR /usr/share
 # preserve copyright files
 RUN tar -czf copyrights.tar.gz common-licenses doc/*/copyright
 RUN sed 's|doc/\*/copyright|copyrights.tar.gz|' /etc/motd
 # clean up
-RUN apt-get clean
 RUN rm -r \
     doc \
     man \
@@ -58,5 +42,4 @@ RUN rm -r \
     /var/cache/debconf/* \
     /var/lib/apt/lists/* \
     /usr/lib/locale/C.UTF-8 \
-    /var/log/* \
-    /debconf_2_all.deb
+    /var/log/*
