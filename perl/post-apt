@@ -1,0 +1,16 @@
+#!/bin/sh -eu
+
+cd /usr/share
+# preserve copyrights
+gunzip copyrights.tar.gz
+tar -rf copyrights.tar doc/*/copyright
+gzip copyrights.tar
+# clean up
+rm -rf \
+  /var/lib/apt/lists/* \
+  doc \
+  man \
+  info \
+  locale \
+  /var/log/* \
+  /var/cache/debconf/*

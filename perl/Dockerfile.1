@@ -1,0 +1,41 @@
+FROM debian:jessie
+
+ENV DEBIAN_FRONTEND noninteractive
+RUN echo "Yes, do as I say!" | apt-get purge \
+    startpar \
+    tzdata \
+    bash \
+    iproute2 \
+    e2fslibs \
+    libgpg-error0 \
+    ncurses-bin \
+    libncurses5 \
+    libncursesw5 \
+    ncurses-base \
+    libsemanage-common \
+    libsepol1 \
+    libustr-1.0-1 \
+    inetutils-ping \
+    libsmartcols1 \
+    insserv \
+    acl \
+    libkmod2 \
+    libprocps3 \
+    libcomerr2 \
+    libcap2-bin \
+    libudev1 \
+    debconf-i18n
+# bash removed, update passwd
+RUN sed -i 's/bash/sh/g' /etc/passwd
+
+WORKDIR /usr/share
+# preserve copyright files
+RUN tar -czf copyrights.tar.gz common-licenses doc/*/copyright
+RUN sed 's|doc/\*/copyright|copyrights.tar.gz|' /etc/motd
+# clean up
+COPY post-apt /opt/
+RUN /opt/post-apt
+RUN rm -r \
+    common-licenses \
+    ~/.bashrc \
+    /usr/lib/locale/C.UTF-8
