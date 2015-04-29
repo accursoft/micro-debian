@@ -2,7 +2,7 @@
 
 docker pull debian:jessie
 cd perl
-../build
+./build
 cd ../no-perl
 ./build
 cd ..
