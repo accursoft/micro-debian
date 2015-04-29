@@ -2,7 +2,7 @@ Removed from the [official image](https://registry.hub.docker.com/_/debian/):
 
  - systemd
  - tzdata
- - bash (change #!/bin/bash to sh)
+ - bash (change `#!/bin/bash` to `#!/bin/sh` for dash)
  - iproute
  - passwd
  - various low-level system tools and libraries
