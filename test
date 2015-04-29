@@ -6,4 +6,4 @@ cd perl
 cd ../no-perl
 ./build
 cd ..
-docker run --rm accursoft/micro-jessie:no-perl sh -c "apt-get update && apt-get install -y perl-base curl && curl https://google.com >/dev/null"
+docker run --rm -e DEBIAN_FRONTEND=noninteractive accursoft/micro-jessie:no-perl sh -c "apt-get update && apt-get install -y perl-base curl && curl https://google.com >/dev/null"
