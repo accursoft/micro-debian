@@ -3,7 +3,6 @@ Removed from the [official image](https://registry.hub.docker.com/_/debian/):
  - systemd
  - tzdata
  - bash (change #!/bin/bash to sh)
- - perl
  - iproute
  - passwd
  - various low-level system tools and libraries
