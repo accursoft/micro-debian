@@ -10,6 +10,11 @@ Removed from the [official image](https://registry.hub.docker.com/_/debian/):
  - man
  - info
  - locale (`apt-get install --reinstall libc-bin` to recover C.UTF-8)
+ 
+Utility scripts provided:
+ 
+ - `/opt/post-apt` cleans apt caches, logs, and installed docs
+ - `/opt/dev` installs bash and ncurses-base for an interactive shell
 
 `no-perl` removes perl-base and replaces debconf with cdebconf. Beware that many packages have an undeclared dependency on perl-base.
 Sometimes this is only needed at install time, e.g. when installing ca-certificates due to [openssl issue #2324](http://rt.openssl.org/Ticket/Display.html?id=2324).
