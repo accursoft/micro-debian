@@ -1,0 +1,5 @@
+#!/bin/sh -eu
+
+apt update
+apt install -y --no-install-recommends bash ncurses-base
+exec bash

@@ -33,7 +33,7 @@ WORKDIR /usr/share
 RUN tar -czf copyrights.tar.gz common-licenses doc/*/copyright
 RUN sed 's|doc/\*/copyright|copyrights.tar.gz|' /etc/motd
 # clean up
-COPY post-apt /opt/
+COPY post-apt dev /opt/
 RUN /opt/post-apt
 RUN rm -r \
     common-licenses \
