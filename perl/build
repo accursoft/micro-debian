@@ -1,9 +1,9 @@
 #!/bin/bash -eu
 
-docker build -f Dockerfile.1 -t micro-jessie .
-docker create --name micro-jessie micro-jessie
-docker export micro-jessie >micro-jessie.tar
-docker rm micro-jessie
-docker rmi micro-jessie
-docker build -f Dockerfile.2 -t accursoft/micro-jessie${1:-} .
-rm micro-jessie.tar
+docker build -f Dockerfile.1 -t micro-debian .
+docker create --name micro-debian micro-debian
+docker export micro-debian >micro-debian.tar
+docker rm micro-debian
+docker rmi micro-debian
+docker build -f Dockerfile.2 -t accursoft/micro-debian${1:-} .
+rm micro-debian.tar
