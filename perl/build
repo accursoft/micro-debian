@@ -5,5 +5,5 @@ docker create --name micro-jessie micro-jessie
 docker export micro-jessie >micro-jessie.tar
 docker rm micro-jessie
 docker rmi micro-jessie
-docker build -f Dockerfile.2 -t accursoft/micro-jessie:${1:-} .
+docker build -f Dockerfile.2 -t accursoft/micro-jessie${1:-} .
 rm micro-jessie.tar
