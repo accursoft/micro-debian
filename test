@@ -1,9 +1,5 @@
 #!/bin/sh -eu
 
 docker pull debian:stretch
-cd perl
 ./build
-cd ../no-perl
-./build
-cd ..
-docker run --rm -e DEBIAN_FRONTEND=noninteractive accursoft/micro-debian:no-perl sh -c "apt-get update && apt-get install -y perl-base curl && curl https://google.com >/dev/null"
+docker run --rm -e DEBIAN_FRONTEND=noninteractive accursoft/micro-debian sh -c "apt-get update && apt-get install -y curl && curl https://google.com >/dev/null"

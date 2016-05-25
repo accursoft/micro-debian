@@ -5,5 +5,5 @@ docker create --name micro-debian micro-debian
 docker export micro-debian >micro-debian.tar
 docker rm micro-debian
 docker rmi micro-debian
-docker build -f Dockerfile.2 -t accursoft/micro-debian${1:-} .
+docker build -f Dockerfile.2 -t accursoft/micro-debian .
 rm micro-debian.tar

@@ -1,7 +1,0 @@
-#!/bin/bash -eu
-
-equivs-build debconf-dummy
-echo "$(cat ../perl/Dockerfile.2)
-ENV DEBCONF_USE_CDEBCONF yes" >Dockerfile.2
-../perl/build :no-perl
-rm debconf_2_all.deb Dockerfile.2

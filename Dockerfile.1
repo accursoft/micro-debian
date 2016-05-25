@@ -19,10 +19,7 @@ RUN echo "Yes, do as I say!" | apt-get purge \
     libcomerr2 \
     libcap2-bin \
     libudev1 \
-    debconf-i18n \
-    libuuid1 \
-    init-system-helpers \
-    gcc-4.?-base
+    libuuid1
 # bash removed, update passwd
 RUN sed -i 's/bash/sh/g' /etc/passwd
 
