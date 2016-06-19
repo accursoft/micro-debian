@@ -18,13 +18,13 @@ RUN echo "Yes, do as I say!" | apt-get purge \
     libcomerr2 \
     libudev1 \
     libuuid1
-# bash removed, update passwd
+
 RUN sed -i 's/bash/sh/g' /etc/passwd
 
 WORKDIR /usr/share
 # preserve copyright files
 RUN tar -czf copyrights.tar.gz common-licenses doc/*/copyright
-RUN sed 's|doc/\*/copyright|copyrights.tar.gz|' /etc/motd
+RUN sed -i 's|doc/\*/copyright|copyrights.tar.gz|' /etc/motd
 # clean up
 COPY post-apt dev /opt/
 RUN /opt/post-apt
