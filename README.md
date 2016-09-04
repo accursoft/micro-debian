@@ -8,7 +8,6 @@ Removed from the [official image](https://registry.hub.docker.com/_/debian/):
  - doc (copyright files archived in `/usr/share/copyrights.tar.gz`)
  - man
  - info
- - locale (`apt-get install --reinstall libc-bin` to recover C.UTF-8)
  
 Utility scripts provided:
  
