@@ -2,7 +2,6 @@ FROM debian:stretch
 
 ENV DEBIAN_FRONTEND noninteractive
 RUN echo "Yes, do as I say!" | apt-get purge \
-    startpar \
     tzdata \
     bash \
     iproute2 \
@@ -14,10 +13,11 @@ RUN echo "Yes, do as I say!" | apt-get purge \
     ncurses-base \
     inetutils-ping \
     libsmartcols1 \
-    insserv \
     libcomerr2 \
     libudev1 \
-    libuuid1
+    libuuid1 \
+    libelf1 \
+    libmnl0
 
 RUN sed -i 's/bash/sh/g' /etc/passwd
 
@@ -31,6 +31,5 @@ RUN /opt/post-apt
 RUN rm -r \
     common-licenses \
     ~/.bashrc \
-    /usr/lib/locale/C.UTF-8 \
     /lib/lsb \
-    /lib/udev
+    /lib/systemd
