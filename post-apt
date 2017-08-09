@@ -4,9 +4,11 @@ apt-get autoremove -y
 apt-get clean
 cd /usr/share
 # preserve copyrights
-gunzip copyrights.tar.gz
-tar -rf copyrights.tar doc/*/copyright
-gzip copyrights.tar
+if stat -t doc/*/copyright >/dev/null 2>&1; then
+  gunzip copyrights.tar.gz
+  tar -rf copyrights.tar doc/*/copyright
+  gzip copyrights.tar
+fi
 # clean up
 rm -rf \
   /var/lib/apt/lists/* \
