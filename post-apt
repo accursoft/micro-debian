@@ -1,6 +1,6 @@
 #!/bin/sh -eu
 
-apt-get autoremove -y
+apt-get autoremove --purge -y
 apt-get clean
 cd /usr/share
 # preserve copyrights
