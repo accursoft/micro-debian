@@ -1,6 +1,7 @@
 FROM debian:stretch
 
 ENV DEBIAN_FRONTEND noninteractive
+RUN apt-get install netbase -y
 RUN apt-get purge --allow-remove-essential -y \
     tzdata \
     bash \
